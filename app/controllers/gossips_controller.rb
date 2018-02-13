@@ -25,16 +25,19 @@ class GossipsController < ApplicationController
   # POST /gossips.json
   def create
     @gossip = Gossip.new(gossip_params)
-
-    respond_to do |format|
-      if @gossip.save
-        format.html { redirect_to @gossip, notice: 'Gossip was successfully created.' }
-        format.json { render :show, status: :created, location: @gossip }
-      else
-        format.html { render :new }
-        format.json { render json: @gossip.errors, status: :unprocessable_entity }
-      end
-    end
+    @gossip.user = current_user
+    @gossip.save
+    redirect_to @gossip
+    #
+    # respond_to do |format|
+    #   if @gossip.save
+    #     format.html { redirect_to @gossip, notice: 'Gossip was successfully created.' }
+    #     format.json { render :show, status: :created, location: @gossip }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @gossip.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /gossips/1

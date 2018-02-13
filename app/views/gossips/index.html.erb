@@ -15,10 +15,12 @@
     <% @gossips.each do |gossip| %>
       <tr>
         <td><%= gossip.content %></td>
-        <td><%= gossip.user %></td>
+        <td><%= gossip.user.username %></td>
         <td><%= link_to 'Show', gossip %></td>
-        <td><%= link_to 'Edit', edit_gossip_path(gossip) %></td>
-        <td><%= link_to 'Destroy', gossip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user.id == gossip.user.id %>
+          <td><%= link_to 'Edit', edit_gossip_path(gossip) %></td>
+          <td><%= link_to 'Destroy', gossip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
       </tr>
     <% end %>
   </tbody>

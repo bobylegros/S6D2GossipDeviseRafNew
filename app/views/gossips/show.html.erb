@@ -7,8 +7,9 @@
 
 <p>
   <strong>User:</strong>
-  <%= @gossip.user %>
+  <%= @gossip.user.username %>
 </p>
-
-<%= link_to 'Edit', edit_gossip_path(@gossip) %> |
-<%= link_to 'Back', gossips_path %>
+<% if current_user.id == @gossip.user.id %>
+  <%= link_to 'Edit', edit_gossip_path(@gossip) %>
+<%end%>
+  <%= link_to 'Back', gossips_path %>
