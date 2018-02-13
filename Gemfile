@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # authentification
 #gem 'pundit'
 
-gem 'bootstrap-sass'
+#gem 'bootstrap-sass'
 gem 'devise'
 gem 'annotate'
 gem 'bootstrap', '~> 4.0.0'
