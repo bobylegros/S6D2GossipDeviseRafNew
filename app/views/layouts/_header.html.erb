@@ -3,9 +3,9 @@
     <%= link_to "Gossip Project", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Les Gossips", gossips_path %></li>
-        <li><%= link_to "Poster votre Gossip", new_gossip_path %></li>
+        <li class="nav-item active"><%= link_to "Home", root_path, class: 'nav-link' %></li>
+        <li class="nav-item active"><%= link_to "Les Gossips", gossips_path, class: 'nav-link' %></li>
+        <li class="nav-item active"><%= link_to "Poster votre Gossip", new_gossip_path, class: 'nav-link' %></li>
 
 
         <% if user_signed_in? %>
